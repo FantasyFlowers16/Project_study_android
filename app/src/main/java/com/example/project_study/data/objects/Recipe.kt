@@ -25,4 +25,6 @@ data class Recipe(
 
     @SerializedName("difficulty")
     val difficulty: Int
-)
+) {
+
+}

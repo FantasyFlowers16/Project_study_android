@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.project_study.R
 import com.example.project_study.data.objects.Recipe
-import com.example.project_study.ui.mvp.details.CustomDetailsAdapter
 import com.example.project_study.ui.mvp.details.MvpDetailsActivity
 import com.google.android.material.snackbar.Snackbar
 
@@ -30,10 +29,6 @@ class MvpMainActivity : AppCompatActivity(), IMainView{
 
         private fun initViews(){
             findViewById<ProgressBar>(R.id.mvpProgressBar).visibility = View.VISIBLE
-            val recyclerView = findViewById<RecyclerView>(R.id.mvpMainRecycler)
-            recyclerView.setOnClickListener{
-                presenter.ClickItem()
-            }
         }
         private fun initPresenter(){
             presenter = MvpMainPresenter(this)
@@ -52,7 +47,6 @@ class MvpMainActivity : AppCompatActivity(), IMainView{
     override fun showList(list: List<Recipe>) {
         val recyclerView = findViewById<RecyclerView>(R.id.mvpMainRecycler)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        //TODO Adapter
         recyclerView.adapter = CustomAdapter(list, onClick = {
             val intent = Intent(this, MvpDetailsActivity::class.java)
             intent.putExtra("id", it)
@@ -60,33 +54,23 @@ class MvpMainActivity : AppCompatActivity(), IMainView{
         })
     }
 
-    override fun getId(list: List<Recipe>) {
+    override fun showRecipe(list: List<Recipe>) {
         val recyclerView = findViewById<RecyclerView>(R.id.mvpMainRecycler)
-        recyclerView.setOnClickListener{
-            presenter.getDetails("настя")
-        }
-
-
         recyclerView.layoutManager = LinearLayoutManager(this)
-        LinearLayoutManager(this)
-//        recyclerView.adapter = CustomDetailsAdapter(list) {
-//            val intent = Intent(this, MvpDetailsActivity::class.java).apply {
-//                putExtra("id", list.elementAt(it).uuid)
-//                val uuid = list.elementAt(it).uuid
-//            }
-//            startActivity(intent)
-//        }
+        recyclerView.adapter = CustomAdapter(list, onClick = {
+            val intent = Intent(this, MvpDetailsActivity::class.java)
+            startActivity(intent)
+        })
     }
+
 
 
     override fun showLoader(flag: Boolean) {
         if (flag) {
 //            Toast.makeText(this, "hello", Toast.LENGTH_LONG).show()
-            Log.i("TAg", "load")
             findViewById<ProgressBar>(R.id.mvpProgressBar).visibility = View.VISIBLE
             findViewById<RecyclerView>(R.id.mvpMainRecycler).visibility = View.GONE
         } else {
-            Log.i("TAg", "noload")
             findViewById<ProgressBar>(R.id.mvpProgressBar).visibility = View.GONE
             findViewById<RecyclerView>(R.id.mvpMainRecycler).visibility = View.VISIBLE
         }

@@ -9,6 +9,7 @@ class MvpMainPresenter(private var view: IMainView?) : IMainPresenter{
     override fun init() {
         fetchData()
         view?.showInfo("Проверка")
+
 //        view?.getId()
 
     }
@@ -35,12 +36,8 @@ class MvpMainPresenter(private var view: IMainView?) : IMainPresenter{
         fetchData()
     }
 
-    fun ClickItem() {
 
-    }
 
-    override fun getDetails(item: String) {
-        Log.i("TAg", item)
-    }
+
 
 }

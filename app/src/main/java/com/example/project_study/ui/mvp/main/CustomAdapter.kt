@@ -28,7 +28,6 @@ class CustomAdapter(private val list: List<Recipe>, private val onClick: (String
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.text.text = list[position].name
-        val url: String = list[position].images[0]
         Picasso.get().load(list[position].images[0]).into(holder.img);
         holder.itemLayout.setOnClickListener {
             onClick.invoke(list[position].uuid)
@@ -38,7 +37,6 @@ class CustomAdapter(private val list: List<Recipe>, private val onClick: (String
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val text = view.findViewById<TextView>(R.id.recipe_text)
         var img=view.findViewById<ImageView>(R.id.ItemListImg)
-        val activity = view.findViewById<TextView>(R.id.details__root)
         val itemLayout = view.findViewById<ConstraintLayout>(R.id.itemLayout)
     }
 

@@ -7,7 +7,7 @@ interface IMainView {
     fun showList(list: List<Recipe>)
     fun showLoader(flag: Boolean)
     fun showError(message: String)
-    fun getId(list: List<Recipe>)
+    fun showRecipe(list: List<Recipe>)
 
 
 }
@@ -16,7 +16,6 @@ interface IMainPresenter {
     fun init()
     fun destroy()
     fun refresh()
-    fun getDetails(item: String)
-//    fun getId(list: List<Recipe>)
+
 
 }

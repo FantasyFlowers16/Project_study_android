@@ -24,7 +24,7 @@ class MvpDetailsPresenter(private var view: IDetailsView?) : IDetailsPresenter {
 
     override fun refresh() {
         view?.showLoad(true)
-//        fetchData(uuid)
+//        fetchData()
     }
 
 

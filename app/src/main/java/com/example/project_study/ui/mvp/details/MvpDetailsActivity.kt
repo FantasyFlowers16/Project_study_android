@@ -1,17 +1,14 @@
 package com.example.project_study.ui.mvp.details
 
-
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.project_study.R
 import com.example.project_study.data.objects.Recipe
+import com.squareup.picasso.Picasso
+
 
 
 class MvpDetailsActivity : AppCompatActivity(), IDetailsView {
@@ -29,7 +26,6 @@ class MvpDetailsActivity : AppCompatActivity(), IDetailsView {
     }
 
     private fun initViews() {
-        
         findViewById<ProgressBar>(R.id.mvpProgressBar).visibility = View.VISIBLE
     }
 
@@ -37,27 +33,26 @@ class MvpDetailsActivity : AppCompatActivity(), IDetailsView {
         presenter = MvpDetailsPresenter(this)
     }
 
+    override fun showItem(item: Recipe) {
+        val NameRecipe = findViewById<TextView>(R.id.name_recipe)
+        val PhotoRecipe = findViewById<ImageView>(R.id.img_recipe)
+        val DescriptionRecipe = findViewById<TextView>(R.id.description_recipe)
+        val InstructionRecipe = findViewById<TextView>(R.id.instruction_recipe)
+        val  RaitingRecipe  = findViewById<RatingBar>(R.id.rating_recipe);
+        NameRecipe.text = item.name
+        Picasso.get().load(item.images[0]).into(PhotoRecipe);
+        DescriptionRecipe.text = item.description
+        InstructionRecipe.text = item.instructions
 
-    override fun showItem(list: Recipe) {
-        val recyclerView = findViewById<RecyclerView>(R.id.details__root)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        //TODO Adapter
-        recyclerView.adapter = CustomDetailsAdapter(list) {
-            val intent = Intent(this, MvpDetailsActivity::class.java)
-            intent.putExtra("id", it)
-            startActivity(intent)
-        }
     }
-
-
 
     override fun showLoad(flag: Boolean) {
         if (flag) {
             findViewById<ProgressBar>(R.id.mvpProgressBar).visibility = View.VISIBLE
-            findViewById<ConstraintLayout>(R.id.itemLayout).visibility = View.GONE
+            findViewById<ConstraintLayout>(R.id.details__root).visibility = View.GONE
         } else {
             findViewById<ProgressBar>(R.id.mvpProgressBar).visibility = View.GONE
-            findViewById<ConstraintLayout>(R.id.itemLayout).visibility = View.VISIBLE
+            findViewById<ConstraintLayout>(R.id.details__root).visibility = View.VISIBLE
         }
     }
 
