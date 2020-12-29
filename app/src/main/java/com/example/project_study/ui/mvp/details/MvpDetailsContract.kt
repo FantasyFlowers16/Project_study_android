@@ -1,6 +1,8 @@
 package com.example.project_study.ui.mvp.details
 
 import com.example.project_study.data.objects.Recipe
+import com.example.project_study.data.objects.RecipeItem
+
 
 interface IDetailsView {
     fun showItem(item: Recipe)

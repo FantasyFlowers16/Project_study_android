@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.project_study.R
 import com.example.project_study.data.objects.Recipe
+import com.example.project_study.data.objects.RecipeItem
 import com.example.project_study.ui.mvp.details.MvpDetailsActivity
 import com.google.android.material.snackbar.Snackbar
 
@@ -44,7 +45,7 @@ class MvpMainActivity : AppCompatActivity(), IMainView{
         Toast.makeText(this,item,Toast.LENGTH_LONG).show()
     }
 
-    override fun showList(list: List<Recipe>) {
+    override fun showList(list: List<RecipeItem>) {
         val recyclerView = findViewById<RecyclerView>(R.id.mvpMainRecycler)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = CustomAdapter(list, onClick = {

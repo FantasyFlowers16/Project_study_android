@@ -3,6 +3,7 @@ package com.example.project_study.data
 import android.util.Log
 import com.example.project_study.App
 import com.example.project_study.data.objects.Recipe
+import com.example.project_study.data.objects.RecipeItem
 import com.example.project_study.data.objects.Recipes
 import retrofit2.Call
 import retrofit2.Callback
@@ -20,7 +21,6 @@ class Repository {
                     override fun onResponse(call: Call<Recipe>, response: Response<Recipe>) {
                         onResult.invoke(response.body()!!)
                     }
-
                     override fun onFailure(call: Call<Recipe>, t: Throwable) {
                         onError.invoke(t.message!!)
                     }

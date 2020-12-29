@@ -10,11 +10,12 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.project_study.R
 import com.example.project_study.data.objects.Recipe
+import com.example.project_study.data.objects.RecipeItem
 import com.example.project_study.ui.mvp.details.MvpDetailsActivity
 import com.squareup.picasso.Picasso
 
 
-class CustomAdapter(private val list: List<Recipe>, private val onClick: (String) -> Unit) :
+class CustomAdapter(private val list: List<RecipeItem>, private val onClick: (String) -> Unit) :
         RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

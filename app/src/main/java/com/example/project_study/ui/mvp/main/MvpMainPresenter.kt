@@ -1,17 +1,12 @@
 package com.example.project_study.ui.mvp.main
 
-import android.content.Intent
 import android.util.Log
 import com.example.project_study.App
-import com.example.project_study.ui.mvp.details.MvpDetailsActivity
 
 class MvpMainPresenter(private var view: IMainView?) : IMainPresenter{
     override fun init() {
         fetchData()
         view?.showInfo("Приложение запустилось")
-
-//        view?.getId()
-
     }
 
     private fun fetchData(){

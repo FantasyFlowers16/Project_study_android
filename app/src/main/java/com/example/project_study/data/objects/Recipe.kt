@@ -3,28 +3,33 @@ package com.example.project_study.data.objects
 import com.google.gson.annotations.SerializedName
 data class Recipes (
     @SerializedName("recipes")
-    val recipes: List<Recipe>
+    val recipes: List<RecipeItem>
 
 )
 data class Recipe(
+        @SerializedName("recipe")
+        val recipe: RecipeItem
+)
 
-    @SerializedName("uuid")
-    val uuid: String,
+data class RecipeItem(
 
-    @SerializedName("name")
-    val name: String,
+        @SerializedName("uuid")
+        val uuid: String,
 
-    @SerializedName("images")
-    val images: List<String>,
+        @SerializedName("name")
+        val name: String,
 
-    @SerializedName("description")
-    val description: String,
+        @SerializedName("images")
+        val images: List<String>,
 
-    @SerializedName("instructions")
-    val instructions: String,
+        @SerializedName("description")
+        val description: String,
 
-    @SerializedName("difficulty")
-    val difficulty: Int
-) {
+        @SerializedName("instructions")
+        val instructions: String,
+
+        @SerializedName("difficulty")
+        val difficulty: Int
+)  {
 
 }

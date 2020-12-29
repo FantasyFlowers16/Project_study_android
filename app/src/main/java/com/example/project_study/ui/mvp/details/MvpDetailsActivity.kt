@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.project_study.R
 import com.example.project_study.data.objects.Recipe
+import com.example.project_study.data.objects.RecipeItem
 import com.squareup.picasso.Picasso
-
 
 
 class MvpDetailsActivity : AppCompatActivity(), IDetailsView {
@@ -34,20 +34,18 @@ class MvpDetailsActivity : AppCompatActivity(), IDetailsView {
     }
 
     override fun showItem(item: Recipe) {
-
         val NameRecipe = findViewById<TextView>(R.id.name_recipe)
         val PhotoRecipe = findViewById<ImageView>(R.id.img_recipe)
         val DescriptionRecipe = findViewById<TextView>(R.id.description_recipe)
         val InstructionRecipe = findViewById<TextView>(R.id.instruction_recipe)
-        val  RaitingRecipe  = findViewById<RatingBar>(R.id.rating_recipe);
-        NameRecipe.text = item.name
-        DescriptionRecipe.text = item.description
-        InstructionRecipe.text = item.instructions
-//        Picasso.get().load(item.images[0]).into(PhotoRecipe);
+        val  RaitingRecipe  = findViewById<RatingBar>(R.id.rating_recipe)
 
-
+        NameRecipe.text = item.recipe.name
+        Picasso.get().load(item.recipe.images[0]).into(PhotoRecipe)
+        DescriptionRecipe.text = item.recipe.description
+        InstructionRecipe.text = item.recipe.instructions
+        RaitingRecipe.rating = item.recipe.difficulty.toFloat()
     }
-
     override fun showLoad(flag: Boolean) {
         if (flag) {
             findViewById<ProgressBar>(R.id.progressBarDetails).visibility = View.VISIBLE

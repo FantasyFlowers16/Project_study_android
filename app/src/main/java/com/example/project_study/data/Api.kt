@@ -1,6 +1,7 @@
 package com.example.project_study.data
 
 import com.example.project_study.data.objects.Recipe
+import com.example.project_study.data.objects.RecipeItem
 import com.example.project_study.data.objects.Recipes
 import retrofit2.Call
 import retrofit2.http.GET
