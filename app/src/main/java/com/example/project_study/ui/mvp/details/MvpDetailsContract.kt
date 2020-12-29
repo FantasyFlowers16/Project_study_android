@@ -3,10 +3,9 @@ package com.example.project_study.ui.mvp.details
 import com.example.project_study.data.objects.Recipe
 
 interface IDetailsView {
-    fun showItem(list: Recipe)
+    fun showItem(item: Recipe)
     fun showLoad(flag: Boolean)
     fun showEr(message: String)
-//    fun getId(list: List<Recipe>)
 
 
 }
@@ -14,6 +13,6 @@ interface IDetailsView {
 interface IDetailsPresenter {
     fun init(id: String)
     fun destroy()
-    fun refresh()
-//    fun ClickItem()
+    fun refresh(id: String)
+
 }

@@ -54,20 +54,8 @@ class MvpMainActivity : AppCompatActivity(), IMainView{
         })
     }
 
-    override fun showRecipe(list: List<Recipe>) {
-        val recyclerView = findViewById<RecyclerView>(R.id.mvpMainRecycler)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = CustomAdapter(list, onClick = {
-            val intent = Intent(this, MvpDetailsActivity::class.java)
-            startActivity(intent)
-        })
-    }
-
-
-
     override fun showLoader(flag: Boolean) {
         if (flag) {
-//            Toast.makeText(this, "hello", Toast.LENGTH_LONG).show()
             findViewById<ProgressBar>(R.id.mvpProgressBar).visibility = View.VISIBLE
             findViewById<RecyclerView>(R.id.mvpMainRecycler).visibility = View.GONE
         } else {

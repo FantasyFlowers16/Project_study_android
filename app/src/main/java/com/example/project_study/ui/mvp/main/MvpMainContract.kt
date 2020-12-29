@@ -7,7 +7,7 @@ interface IMainView {
     fun showList(list: List<Recipe>)
     fun showLoader(flag: Boolean)
     fun showError(message: String)
-    fun showRecipe(list: List<Recipe>)
+//    fun showRecipe(list: List<Recipe>)
 
 
 }

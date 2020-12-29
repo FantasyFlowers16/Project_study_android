@@ -8,7 +8,7 @@ import com.example.project_study.ui.mvp.details.MvpDetailsActivity
 class MvpMainPresenter(private var view: IMainView?) : IMainPresenter{
     override fun init() {
         fetchData()
-        view?.showInfo("Проверка")
+        view?.showInfo("Приложение запустилось")
 
 //        view?.getId()
 

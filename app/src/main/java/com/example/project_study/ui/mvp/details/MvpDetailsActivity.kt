@@ -34,15 +34,17 @@ class MvpDetailsActivity : AppCompatActivity(), IDetailsView {
     }
 
     override fun showItem(item: Recipe) {
+
         val NameRecipe = findViewById<TextView>(R.id.name_recipe)
         val PhotoRecipe = findViewById<ImageView>(R.id.img_recipe)
         val DescriptionRecipe = findViewById<TextView>(R.id.description_recipe)
         val InstructionRecipe = findViewById<TextView>(R.id.instruction_recipe)
         val  RaitingRecipe  = findViewById<RatingBar>(R.id.rating_recipe);
         NameRecipe.text = item.name
-        Picasso.get().load(item.images[0]).into(PhotoRecipe);
         DescriptionRecipe.text = item.description
         InstructionRecipe.text = item.instructions
+//        Picasso.get().load(item.images[0]).into(PhotoRecipe);
+
 
     }
 

@@ -15,16 +15,15 @@ class MvpDetailsPresenter(private var view: IDetailsView?) : IDetailsPresenter {
                     view?.showLoad(false)
                 }
         )
-
     }
 
     override fun destroy() {
         view = null
     }
 
-    override fun refresh() {
+    override fun refresh(uuid:String) {
         view?.showLoad(true)
-//        fetchData()
+        fetchData(uuid)
     }
 
 
