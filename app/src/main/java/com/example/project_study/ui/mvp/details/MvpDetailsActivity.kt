@@ -26,7 +26,7 @@ class MvpDetailsActivity : AppCompatActivity(), IDetailsView {
     }
 
     private fun initViews() {
-        findViewById<ProgressBar>(R.id.mvpProgressBar).visibility = View.VISIBLE
+        findViewById<ProgressBar>(R.id.progressBarDetails).visibility = View.VISIBLE
     }
 
     private fun initPresenter() {
@@ -48,10 +48,10 @@ class MvpDetailsActivity : AppCompatActivity(), IDetailsView {
 
     override fun showLoad(flag: Boolean) {
         if (flag) {
-            findViewById<ProgressBar>(R.id.mvpProgressBar).visibility = View.VISIBLE
+            findViewById<ProgressBar>(R.id.progressBarDetails).visibility = View.VISIBLE
             findViewById<ConstraintLayout>(R.id.details__root).visibility = View.GONE
         } else {
-            findViewById<ProgressBar>(R.id.mvpProgressBar).visibility = View.GONE
+            findViewById<ProgressBar>(R.id.progressBarDetails).visibility = View.GONE
             findViewById<ConstraintLayout>(R.id.details__root).visibility = View.VISIBLE
         }
     }
