@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    android:background="#FF8588">
+    android:background="#FBC2C3"
+    app:layout_constraintCircleRadius="20dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/ItemListCard"
